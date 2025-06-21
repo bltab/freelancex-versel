@@ -46,6 +46,228 @@ function HeroSection({ setIsVideoModalOpen }) {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black/50 to-green-900/20" />
 
+      {/* Animated Background Objects */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Floating Blockchain Nodes */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`node-${i}`}
+            className="absolute"
+            style={{
+              left: `${10 + (i * 12)}%`,
+              top: `${20 + (i % 3) * 25}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 4 + (i * 0.5),
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+          >
+            <div className="w-3 h-3 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full opacity-60 shadow-lg shadow-purple-500/30">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full animate-pulse" />
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Floating Geometric Shapes */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`shape-${i}`}
+            className="absolute"
+            style={{
+              right: `${5 + (i * 15)}%`,
+              top: `${15 + (i % 4) * 20}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 360],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 6 + (i * 0.3),
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: i * 0.5,
+            }}
+          >
+            {i % 3 === 0 ? (
+              <div className="w-4 h-4 border-2 border-[#5B2EFF] opacity-40 transform rotate-45" />
+            ) : i % 3 === 1 ? (
+              <div className="w-5 h-5 border-2 border-[#6EFF6B] rounded-full opacity-40" />
+            ) : (
+              <div className="w-4 h-4 bg-gradient-to-r from-[#5B2EFF]/30 to-[#6EFF6B]/30 transform rotate-45" />
+            )}
+          </motion.div>
+        ))}
+
+        {/* Crypto Symbols */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`crypto-${i}`}
+            className="absolute text-2xl opacity-20"
+            style={{
+              left: `${15 + (i * 18)}%`,
+              bottom: `${10 + (i % 2) * 30}%`,
+            }}
+            animate={{
+              y: [0, -15, 0],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 3 + (i * 0.4),
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: i * 0.6,
+            }}
+          >
+            {i % 5 === 0 && <span className="text-[#5B2EFF]">₿</span>}
+            {i % 5 === 1 && <span className="text-[#6EFF6B]">Ξ</span>}
+            {i % 5 === 2 && <span className="text-[#5B2EFF]">◊</span>}
+            {i % 5 === 3 && <span className="text-[#6EFF6B]">⬡</span>}
+            {i % 5 === 4 && <span className="text-[#5B2EFF]">⟐</span>}
+          </motion.div>
+        ))}
+
+        {/* Connecting Lines Animation */}
+        <svg className="absolute inset-0 w-full h-full opacity-20">
+          {[...Array(4)].map((_, i) => (
+            <motion.line
+              key={`line-${i}`}
+              x1={`${10 + i * 20}%`}
+              y1="20%"
+              x2={`${30 + i * 20}%`}
+              y2="80%"
+              stroke="url(#gradient)"
+              strokeWidth="1"
+              strokeDasharray="5,5"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.3 }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "reverse",
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#5B2EFF" />
+              <stop offset="100%" stopColor="#6EFF6B" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Floating Data Packets */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={`packet-${i}`}
+            className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              x: [0, Math.random() * 200 - 100],
+              y: [0, Math.random() * 200 - 100],
+              opacity: [0.6, 0, 0.6],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+
+        {/* Blockchain Blocks */}
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`block-${i}`}
+            className="absolute"
+            style={{
+              right: `${20 + i * 25}%`,
+              bottom: `${20 + i * 15}%`,
+            }}
+            animate={{
+              rotateY: [0, 360],
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 8 + i,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: i * 1.5,
+            }}
+          >
+            <div className="w-6 h-6 border border-[#5B2EFF]/40 bg-gradient-to-br from-[#5B2EFF]/10 to-[#6EFF6B]/10 backdrop-blur-sm">
+              <div className="w-full h-full border border-[#6EFF6B]/20 transform rotate-45" />
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Orbiting Satellites */}
+        {[...Array(2)].map((_, i) => (
+          <motion.div
+            key={`satellite-${i}`}
+            className="absolute w-20 h-20"
+            style={{
+              left: `${30 + i * 40}%`,
+              top: `${40 + i * 20}%`,
+            }}
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              duration: 15 + i * 5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          >
+            <motion.div
+              className="absolute top-0 left-1/2 w-2 h-2 bg-[#5B2EFF] rounded-full -translate-x-1/2"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+        ))}
+
+        {/* Energy Waves */}
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`wave-${i}`}
+            className="absolute w-32 h-32 border border-[#6EFF6B]/20 rounded-full"
+            style={{
+              left: `${25 + i * 25}%`,
+              top: `${30 + i * 15}%`,
+            }}
+            animate={{
+              scale: [1, 2, 1],
+              opacity: [0.3, 0, 0.3],
+            }}
+            transition={{
+              duration: 4 + i,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeOut",
+              delay: i * 2,
+            }}
+          />
+        ))}
+      </div>
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <Badge className="mb-6 bg-purple-500/20 text-purple-300 border-purple-500/50 hover:bg-purple-500/30">
