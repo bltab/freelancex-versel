@@ -60,20 +60,50 @@ function HeroSection({ setIsVideoModalOpen }) {
               top: `${20 + (i % 3) * 25}%`,
             }}
             animate={{
-              y: [0, -20, 0],
-              x: [0, 10, 0],
+              y: [0, -25, -10, -20, 0],
+              x: [0, 8, 15, 5, 0],
               rotate: [0, 180, 360],
+              scale: [1, 1.1, 0.9, 1.05, 1],
             }}
             transition={{
-              duration: 4 + (i * 0.5),
+              duration: 6 + (i * 0.3),
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
+              ease: [0.25, 0.46, 0.45, 0.94],
               delay: i * 0.3,
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
             }}
           >
-            <div className="w-3 h-3 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full opacity-60 shadow-lg shadow-purple-500/30">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full animate-pulse" />
-            </div>
+            <motion.div 
+              className="w-3 h-3 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full opacity-60 shadow-lg shadow-purple-500/30"
+              animate={{
+                boxShadow: [
+                  "0 0 10px rgba(91, 46, 255, 0.3)",
+                  "0 0 20px rgba(91, 46, 255, 0.6)",
+                  "0 0 15px rgba(110, 255, 107, 0.4)",
+                  "0 0 10px rgba(91, 46, 255, 0.3)"
+                ]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut"
+              }}
+            >
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full"
+                animate={{
+                  opacity: [0.5, 1, 0.7, 0.5],
+                  scale: [1, 1.2, 0.8, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
           </motion.div>
         ))}
 
@@ -87,14 +117,14 @@ function HeroSection({ setIsVideoModalOpen }) {
               top: `${15 + (i % 4) * 20}%`,
             }}
             animate={{
-              y: [0, -30, 0],
+              y: [0, -35, -15, -25, 0],
               rotate: [0, 360],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.3, 0.9, 1.1, 1],
             }}
             transition={{
-              duration: 6 + (i * 0.3),
+              duration: 8 + (i * 0.5),
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
+              ease: [0.4, 0, 0.2, 1],
               delay: i * 0.5,
             }}
           >
@@ -126,6 +156,9 @@ function HeroSection({ setIsVideoModalOpen }) {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
               delay: i * 0.6,
+              type: "spring",
+              stiffness: 40,
+              damping: 15,
             }}
           >
             {i % 5 === 0 && <span className="text-[#5B2EFF]">₿</span>}
@@ -180,11 +213,44 @@ function HeroSection({ setIsVideoModalOpen }) {
               y: [0, Math.random() * 200 - 100],
               opacity: [0.6, 0, 0.6],
             }}
-            transition={{
+              <motion.div 
+                className="w-4 h-4 border-2 border-[#5B2EFF] opacity-40 transform rotate-45"
+                animate={{
+                  borderColor: ["#5B2EFF", "#6EFF6B", "#5B2EFF"],
+                  opacity: [0.4, 0.7, 0.4]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut"
+                }}
+              />
               duration: 3 + Math.random() * 2,
-              repeat: Number.POSITIVE_INFINITY,
+              <motion.div 
+                className="w-5 h-5 border-2 border-[#6EFF6B] rounded-full opacity-40"
+                animate={{
+                  borderColor: ["#6EFF6B", "#5B2EFF", "#6EFF6B"],
+                  opacity: [0.4, 0.8, 0.4]
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut"
+                }}
+              />
               ease: "linear",
-              delay: Math.random() * 2,
+              <motion.div 
+                className="w-4 h-4 bg-gradient-to-r from-[#5B2EFF]/30 to-[#6EFF6B]/30 transform rotate-45"
+                animate={{
+                  opacity: [0.3, 0.6, 0.3],
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut"
+                }}
+              />
             }}
           />
         ))}
@@ -199,13 +265,14 @@ function HeroSection({ setIsVideoModalOpen }) {
               bottom: `${20 + i * 15}%`,
             }}
             animate={{
-              rotateY: [0, 360],
-              y: [0, -10, 0],
+              y: [0, -20, -5, -15, 0],
+              opacity: [0.2, 0.5, 0.3, 0.4, 0.2],
+              scale: [1, 1.1, 0.95, 1.05, 1],
             }}
             transition={{
-              duration: 8 + i,
+              duration: 5 + (i * 0.3),
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
+              ease: [0.25, 0.46, 0.45, 0.94],
               delay: i * 1.5,
             }}
           >
@@ -215,6 +282,9 @@ function HeroSection({ setIsVideoModalOpen }) {
           </motion.div>
         ))}
 
+              type: "spring",
+              stiffness: 60,
+              damping: 25,
         {/* Orbiting Satellites */}
         {[...Array(2)].map((_, i) => (
           <motion.div
@@ -234,38 +304,145 @@ function HeroSection({ setIsVideoModalOpen }) {
             }}
           >
             <motion.div
-              className="absolute top-0 left-1/2 w-2 h-2 bg-[#5B2EFF] rounded-full -translate-x-1/2"
+              className="absolute top-0 left-1/2 w-2 h-2 rounded-full -translate-x-1/2"
               animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.5, 1, 0.5],
+                scale: [1, 1.8, 0.8, 1.3, 1],
+                opacity: [0.5, 1, 0.3, 0.8, 0.5],
+                backgroundColor: [
+                  "#5B2EFF",
+                  "#6EFF6B",
+                  "#8A2BE2",
+                  "#5B2EFF"
+                ],
+                boxShadow: [
+                  "0 0 5px rgba(91, 46, 255, 0.5)",
+                  "0 0 15px rgba(110, 255, 107, 0.8)",
+                  "0 0 10px rgba(138, 43, 226, 0.6)",
+                  "0 0 5px rgba(91, 46, 255, 0.5)"
+                ]
+              animate={{ 
+                pathLength: [0, 1, 0.8, 1],
+                duration: 3.5,
+                strokeDashoffset: [0, -10, -20, -30]
+                ease: [0.25, 0.46, 0.45, 0.94],
+                type: "spring",
+                stiffness: 50,
+                damping: 20,
+              transition={{
+                duration: 4,
+            <motion.linearGradient 
+              id="gradient" 
+              x1="0%" 
+              y1="0%" 
+              x2="100%" 
+              y2="100%"
+              animate={{
+            className="absolute w-32 h-32 rounded-full"
+                y1: ["0%", "25%", "50%", "0%"]
               }}
               transition={{
-                duration: 2,
+                duration: 6,
+                repeat: Number.POSITIVE_INFINITY,
+              scale: [1, 2.5, 0.8, 2, 1],
+              opacity: [0.3, 0, 0.5, 0.1, 0.3],
+              borderColor: [
+                "rgba(110, 255, 107, 0.2)",
+                "rgba(91, 46, 255, 0.1)",
+                "rgba(110, 255, 107, 0.3)",
+                "rgba(138, 43, 226, 0.15)",
+                "rgba(110, 255, 107, 0.2)"
+              ],
+              borderWidth: [1, 3, 1, 2, 1]
+            >
+                ease: [0.4, 0, 0.2, 1],
+              duration: 6 + i * 1.5,
+              }}
+              ease: [0.25, 0.46, 0.45, 0.94],
+          </motion.div>
+              type: "spring",
+              stiffness: 40,
+              damping: 25,
+        ))}
+            className="border"
+          >
+            {/* Inner ripple effect */}
+            <motion.div
+              className="absolute inset-4 border border-[#5B2EFF]/10 rounded-full"
+              animate={{
+                scale: [1, 1.5, 0.7, 1.2, 1],
+                opacity: [0.2, 0.4, 0.1, 0.3, 0.2]
+              }}
+              transition={{
+                duration: 4,
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
+                delay: 0.5
               }}
             />
           </motion.div>
-        ))}
-
         {/* Energy Waves */}
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={`wave-${i}`}
-            className="absolute w-32 h-32 border border-[#6EFF6B]/20 rounded-full"
+            className="absolute w-1 h-1 rounded-full opacity-60"
+            animate={{
+              x: [0, Math.random() * 300 - 150, Math.random() * 200 - 100],
+              y: [0, Math.random() * 300 - 150, Math.random() * 200 - 100],
+              opacity: [0.6, 0.1, 0.8, 0.2, 0.6],
+              scale: [1, 1.5, 0.5, 1.2, 1],
+              backgroundColor: [
+                "rgba(255, 255, 255, 0.6)",
+                "rgba(91, 46, 255, 0.6)",
+                "rgba(110, 255, 107, 0.6)",
+                "rgba(255, 255, 255, 0.6)"
+              ]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: Math.random() * 3,
+              type: "spring",
+              stiffness: 30,
+              damping: 20,
+            }}
+          />
+        ))}
+
+        {/* Enhanced Floating Data Packets */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`enhanced-packet-${i}`}
+            className="absolute w-1.5 h-1.5 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-full"
             style={{
               left: `${25 + i * 25}%`,
               top: `${30 + i * 15}%`,
             }}
-            animate={{
-              scale: [1, 2, 1],
-              opacity: [0.3, 0, 0.3],
+              x: [
+                0, 
+                Math.sin(i * 0.5) * 150, 
+                Math.cos(i * 0.7) * 100,
+                Math.sin(i * 0.3) * 80,
+                0
+              ],
+              y: [
+                0, 
+                Math.cos(i * 0.4) * 120, 
+                Math.sin(i * 0.6) * 90,
+                Math.cos(i * 0.8) * 70,
+                0
+              ],
+              opacity: [0.8, 0.3, 0.9, 0.2, 0.8],
+              scale: [1, 1.3, 0.7, 1.1, 1],
             }}
             transition={{
-              duration: 4 + i,
+              duration: 6 + Math.random() * 4,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeOut",
+              ease: [0.4, 0, 0.2, 1],
               delay: i * 2,
+              type: "spring",
+              stiffness: 35,
+              damping: 18,
             }}
           />
         ))}
@@ -280,8 +457,10 @@ function HeroSection({ setIsVideoModalOpen }) {
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <motion.div
-              className="text-white mb-2"
+              rotateY: [0, 180, 360],
+              rotateX: [0, 15, -15, 0],
+              y: [0, -15, -5, -12, 0],
+              scale: [1, 1.1, 0.95, 1.05, 1],
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -762,15 +941,52 @@ function MockupSection() {
               </div>
               <div className="text-gray-400">Transaction Fees</div>
             </div>
-
+              duration: 10 + i * 2,
             <div className="text-center p-6 bg-gray-900/40 rounded-xl border border-[#FFD700]/20">
-              <div className="text-3xl font-bold text-[#FFD700] mb-2">
+              ease: [0.25, 0.46, 0.45, 0.94],
                 <GlowingText glowColor="#FFD700" intensity="high">
+              type: "spring",
+              stiffness: 45,
+              damping: 22,
                   <AnimatedText text="24/7" animationType="typewriter" />
                 </GlowingText>
-              </div>
-              <div className="text-gray-400">Global Availability</div>
-            </div>
+            <motion.div 
+              className="w-6 h-6 border border-[#5B2EFF]/40 bg-gradient-to-br from-[#5B2EFF]/10 to-[#6EFF6B]/10 backdrop-blur-sm"
+              animate={{
+                borderColor: [
+                  "rgba(91, 46, 255, 0.4)",
+                  "rgba(110, 255, 107, 0.4)",
+                  "rgba(91, 46, 255, 0.4)"
+                ],
+                boxShadow: [
+                  "0 0 10px rgba(91, 46, 255, 0.2)",
+                  "0 0 20px rgba(110, 255, 107, 0.3)",
+                  "0 0 10px rgba(91, 46, 255, 0.2)"
+                ]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut"
+              }}
+            >
+              <motion.div 
+                className="w-full h-full border border-[#6EFF6B]/20 transform rotate-45"
+                animate={{
+                  rotate: [45, 225, 45],
+                  borderColor: [
+                    "rgba(110, 255, 107, 0.2)",
+                    "rgba(91, 46, 255, 0.3)",
+                    "rgba(110, 255, 107, 0.2)"
+                  ]
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -843,11 +1059,15 @@ function TestimonialsSection() {
                   99.9%
                 </GlowingText>
               </div>
+              scale: [1, 1.05, 0.98, 1],
               <div className="text-gray-400">Success Rate</div>
             </div>
-          </div>
+              duration: 20 + i * 8,
         </motion.div>
-
+              ease: [0.4, 0, 0.2, 1],
+              type: "spring",
+              stiffness: 20,
+              damping: 30,
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
