@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { useFrame } from "@react-three/fiber"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,28 +12,8 @@ import { GlowingText } from "@/components/ui/glowing-text"
 import { Header } from "@/components/navigation/header"
 import FuzzyText from "@/components/ui/fuzzy-text"
 
-// 3D Floating Cube Component
-function FloatingCube() {
-  const meshRef = useRef<any>()
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.3
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.3
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2
-    }
-  })
-
-  return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color="#5B2EFF" emissive="#5B2EFF" emissiveIntensity={0.3} transparent opacity={0.8} />
-    </mesh>
-  )
-}
-
 // Hero Section
-function HeroSection({ setIsVideoModalOpen }) {
+function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: boolean) => void }) {
   return (
     <section
       id="hero"
@@ -268,6 +247,7 @@ function HeroSection({ setIsVideoModalOpen }) {
           />
         ))}
       </div>
+
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <Badge className="mb-6 bg-purple-500/20 text-purple-300 border-purple-500/50 hover:bg-purple-500/30">
@@ -317,12 +297,6 @@ function HeroSection({ setIsVideoModalOpen }) {
                 ))}
               </motion.span>
             </motion.div>
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 1.5, ease: "easeOut" }}
-            ></motion.div>
           </h1>
 
           <motion.p
@@ -1085,7 +1059,7 @@ function Footer() {
 }
 
 // Video Modal Component
-function VideoModal({ isVideoModalOpen, setIsVideoModalOpen }) {
+function VideoModal({ isVideoModalOpen, setIsVideoModalOpen }: { isVideoModalOpen: boolean; setIsVideoModalOpen: (open: boolean) => void }) {
   if (!isVideoModalOpen) return null
 
   return (
@@ -1137,6 +1111,7 @@ function VideoModal({ isVideoModalOpen, setIsVideoModalOpen }) {
 // Main Page Component
 export default function FreelanceXLanding() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+  
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <Header />
