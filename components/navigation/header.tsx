@@ -173,8 +173,10 @@ export function Header() {
                     Sign In
                   </GlowingText>
                 </Button>
-                <Button className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-4 sm:px-6 py-3 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group">
-                 onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
+                <Button 
+                  className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-4 sm:px-6 py-3 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group"
+                  onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
+                >
                   <Wallet className="w-4 h-4 mr-2" />
                   <span className="relative z-10">
                     <GlowingText glowColor="#FFFFFF" intensity="low" animated={false}>
