@@ -361,14 +361,14 @@ function TrustSection() {
   ]
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-black">
+    <section className="py-12 sm:py-16 md:py-20 pb-6 sm:pb-8 md:pb-12 bg-black">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-white">
             <GlowingText glowColor="#5B2EFF" intensity="medium">
@@ -434,14 +434,14 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="py-12 sm:py-16 md:py-24 bg-black relative">
+    <section id="features" className="pt-6 sm:pt-8 md:pt-12 pb-12 sm:pb-16 md:pb-24 bg-black relative">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
             <GlowingText glowColor="#FFFFFF" intensity="low">
