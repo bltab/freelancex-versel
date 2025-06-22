@@ -321,7 +321,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             <Button
               size="lg"
               className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group"
-             onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
+            onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
             >
               <span className="relative z-10">
                 <GlowingText glowColor="#FFFFFF" intensity="low">
