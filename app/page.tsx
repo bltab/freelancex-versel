@@ -17,7 +17,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-16 md:pt-20 px-4 sm:px-6"
     >
       {/* Aurora Background */}
       <Aurora className="absolute inset-0 opacity-30" />
@@ -26,7 +26,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black/50 to-green-900/20" />
 
       {/* Animated Background Objects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden sm:block">
         {/* Floating Blockchain Nodes */}
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -248,7 +248,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <Badge className="mb-6 bg-purple-500/20 text-purple-300 border-purple-500/50 hover:bg-purple-500/30">
             <Zap className="w-4 h-4 mr-2" />
@@ -257,7 +257,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             </GlowingText>
           </Badge>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
             <motion.div
               className="text-white mb-2"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -303,7 +303,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
             <GlowingText glowColor="#6EFF6B" intensity="low" animated={false}>
               Experience the future of freelancing with instant payments, smart escrow, and AI-powered dispute
@@ -315,11 +315,11 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           >
             <Button
               size="lg"
-              className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group"
+              className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">
                 <GlowingText glowColor="#FFFFFF" intensity="low">
@@ -332,7 +332,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             <Button
               variant="outline"
               size="lg"
-              className="bg-white/5 backdrop-blur-md border border-[#5B2EFF]/30 text-[#5B2EFF] hover:bg-[#5B2EFF]/20 hover:border-[#5B2EFF]/50 hover:text-white px-8 py-4 rounded-full transition-all duration-300 relative overflow-hidden group"
+              className="w-full sm:w-auto bg-white/5 backdrop-blur-md border border-[#5B2EFF]/30 text-[#5B2EFF] hover:bg-[#5B2EFF]/20 hover:border-[#5B2EFF]/50 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 relative overflow-hidden group"
               onClick={() => setIsVideoModalOpen(true)}
             >
               <span className="relative z-10">
@@ -361,8 +361,8 @@ function TrustSection() {
   ]
 
   return (
-    <section className="py-24 bg-black">
-      <div className="container mx-auto px-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-black">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -370,12 +370,12 @@ function TrustSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-8 text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-white">
             <GlowingText glowColor="#5B2EFF" intensity="medium">
               Trusted by Industry Leaders
             </GlowingText>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center">
             {partners.map((partner, index) => (
               <motion.div
                 key={index}
@@ -384,9 +384,9 @@ function TrustSection() {
                 whileHover={{ opacity: 1, scale: 1.1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="flex flex-col items-center p-6 border-2 border-[#5B2EFF]/20 rounded-xl hover:border-[#5B2EFF]/60 transition-all duration-300 group bg-gray-900/30 backdrop-blur-sm"
+                className="flex flex-col items-center p-3 sm:p-4 lg:p-6 border-2 border-[#5B2EFF]/20 rounded-xl hover:border-[#5B2EFF]/60 transition-all duration-300 group bg-gray-900/30 backdrop-blur-sm"
               >
-                <div className="w-48 h-48 mb-3 flex items-center justify-center">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 mb-2 sm:mb-3 flex items-center justify-center">
                   <img
                     src={partner.logo || "/placeholder.svg"}
                     alt={`${partner.name} logo`}
@@ -397,7 +397,7 @@ function TrustSection() {
                       e.currentTarget.nextElementSibling.style.display = "block"
                     }}
                   />
-                  <div className="hidden w-32 h-32 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                  <div className="hidden w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] rounded-lg flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                     {partner.name.charAt(0)}
                   </div>
                 </div>
@@ -434,8 +434,8 @@ function FeaturesSection() {
   ]
 
   return (
-    <section id="features" className="py-24 bg-black relative">
-      <div className="container mx-auto px-6">
+    <section id="features" className="py-12 sm:py-16 md:py-24 bg-black relative">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -443,7 +443,7 @@ function FeaturesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
             <GlowingText glowColor="#FFFFFF" intensity="low">
               Why Choose{" "}
             </GlowingText>
@@ -454,14 +454,14 @@ function FeaturesSection() {
               ?
             </GlowingText>
           </h2>
-          <p className="text-xl text-gray-400 max-w2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             <GlowingText glowColor="#6EFF6B" intensity="low" animated={false}>
               Built for the future of work with cutting-edge Web3 technology
             </GlowingText>
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -471,16 +471,16 @@ function FeaturesSection() {
               viewport={{ once: true }}
             >
               <Card className="bg-gray-900/50 border-2 border-gray-800 hover:border-[#5B2EFF]/50 transition-all duration-300 h-full backdrop-blur-sm group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#5B2EFF]/20 to-[#6EFF6B]/20 flex items-center justify-center border-2 border-[#5B2EFF]/30 group-hover:border-[#5B2EFF]/60 transition-all duration-300">
-                    <feature.icon className="w-8 h-8 text-[#5B2EFF] group-hover:drop-shadow-[0_0_10px_rgba(91,46,255,0.8)] transition-all duration-300" />
+                <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-[#5B2EFF]/20 to-[#6EFF6B]/20 flex items-center justify-center border-2 border-[#5B2EFF]/30 group-hover:border-[#5B2EFF]/60 transition-all duration-300">
+                    <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#5B2EFF] group-hover:drop-shadow-[0_0_10px_rgba(91,46,255,0.8)] transition-all duration-300" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">
                     <GlowingText glowColor="#5B2EFF" intensity="low" animated={false}>
                       {feature.title}
                     </GlowingText>
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -544,17 +544,17 @@ function MockupSection() {
   return (
     <section
       id="how-it-works"
-      className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden sm:block">
         <div className="absolute top-20 left-10 w-2 h-2 bg-[#5B2EFF] rounded-full animate-pulse"></div>
         <div className="absolute top-40 right-20 w-1 h-1 bg-[#6EFF6B] rounded-full animate-ping"></div>
         <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-[#FFD700] rounded-full animate-pulse"></div>
         <div className="absolute bottom-20 right-1/3 w-1 h-1 bg-[#FF6B6B] rounded-full animate-ping"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -562,13 +562,13 @@ function MockupSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
             <GlowingText glowColor="#FFFFFF" intensity="low">
               Web3 Payment{" "}
             </GlowingText>
             <AnimatedText text="Revolution" animationType="glow" glowColor="#5B2EFF" />
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4 sm:px-0">
             <GlowingText glowColor="#6EFF6B" intensity="low" animated={false}>
               Experience the future of freelance payments with blockchain technology, smart contracts, and instant
               settlements
@@ -579,7 +579,7 @@ function MockupSection() {
         {/* Interactive Payment Flow Visualization */}
         <div className="max-w-6xl mx-auto">
           {/* Step Navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 lg:mb-16">
             {steps.map((step, index) => (
               <motion.button
                 key={index}
@@ -587,19 +587,20 @@ function MockupSection() {
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden ${
                   activeStep === index
                     ? "bg-gradient-to-r from-[#5B2EFF] to-[#6EFF6B] text-white shadow-lg shadow-purple-500/25"
-                    : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 border border-gray-600"
+                    : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 border border-gray-600 text-xs sm:text-sm"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <span className="text-lg">{step.icon}</span>
+                <span className="relative z-10 flex items-center gap-1 sm:gap-2">
+                  <span className="text-sm sm:text-lg">{step.icon}</span>
                   <GlowingText
                     glowColor={activeStep === index ? "#FFFFFF" : step.color}
                     intensity="low"
                     animated={false}
                   >
-                    {step.title}
+                    <span className="hidden sm:inline">{step.title}</span>
+                    <span className="sm:hidden">{step.title.split(' ')[0]}</span>
                   </GlowingText>
                 </span>
               </motion.button>
@@ -609,7 +610,7 @@ function MockupSection() {
           {/* Main Visualization Area */}
           <div className="relative">
             {/* Step Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 relative z-10">
               {steps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -622,7 +623,7 @@ function MockupSection() {
                   className={`relative p-6 rounded-2xl border-2 transition-all duration-500 ${
                     activeStep === index
                       ? "bg-gray-900/80 border-[#5B2EFF]/60 shadow-lg shadow-purple-500/20"
-                      : "bg-gray-900/40 border-gray-700/50"
+                      : "bg-gray-900/40 border-gray-700/50 sm:col-span-1 lg:col-span-1"
                   }`}
                 >
                   {/* Step Number */}
@@ -639,7 +640,7 @@ function MockupSection() {
                   {/* Icon */}
                   <div className="text-center mb-4">
                     <motion.div
-                      className="text-4xl mb-2"
+                      className="text-3xl sm:text-4xl mb-2"
                       animate={
                         activeStep === index
                           ? {
@@ -656,7 +657,7 @@ function MockupSection() {
                     >
                       {step.icon}
                     </motion.div>
-                    <h3 className="text-lg font-bold text-white mb-2">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2">
                       <GlowingText
                         glowColor={activeStep === index ? step.color : "#FFFFFF"}
                         intensity={activeStep === index ? "medium" : "low"}
@@ -677,7 +678,7 @@ function MockupSection() {
                     />
                   </div>
 
-                  <p className="text-sm text-gray-400 text-center leading-relaxed">{step.description}</p>
+                  <p className="text-xs sm:text-sm text-gray-400 text-center leading-relaxed">{step.description}</p>
 
                   {/* Particle Effects for Active Step */}
                   {activeStep === index && (
@@ -715,33 +716,33 @@ function MockupSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
-            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           >
-            <div className="text-center p-6 bg-gray-900/40 rounded-xl border border-[#5B2EFF]/20">
-              <div className="text-3xl font-bold text-[#5B2EFF] mb-2">
+            <div className="text-center p-4 sm:p-6 bg-gray-900/40 rounded-xl border border-[#5B2EFF]/20">
+              <div className="text-2xl sm:text-3xl font-bold text-[#5B2EFF] mb-2">
                 <GlowingText glowColor="#5B2EFF" intensity="high">
                   <AnimatedText text="<2s" animationType="typewriter" />
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Payment Settlement</div>
+              <div className="text-sm sm:text-base text-gray-400">Payment Settlement</div>
             </div>
 
-            <div className="text-center p-6 bg-gray-900/40 rounded-xl border border-[#6EFF6B]/20">
-              <div className="text-3xl font-bold text-[#6EFF6B] mb-2">
+            <div className="text-center p-4 sm:p-6 bg-gray-900/40 rounded-xl border border-[#6EFF6B]/20">
+              <div className="text-2xl sm:text-3xl font-bold text-[#6EFF6B] mb-2">
                 <GlowingText glowColor="#6EFF6B" intensity="high">
                   <AnimatedText text="0.3%" animationType="typewriter" />
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Transaction Fees</div>
+              <div className="text-sm sm:text-base text-gray-400">Transaction Fees</div>
             </div>
 
-            <div className="text-center p-6 bg-gray-900/40 rounded-xl border border-[#FFD700]/20">
-              <div className="text-3xl font-bold text-[#FFD700] mb-2">
+            <div className="text-center p-4 sm:p-6 bg-gray-900/40 rounded-xl border border-[#FFD700]/20">
+              <div className="text-2xl sm:text-3xl font-bold text-[#FFD700] mb-2">
                 <GlowingText glowColor="#FFD700" intensity="high">
                   <AnimatedText text="24/7" animationType="typewriter" />
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Global Availability</div>
+              <div className="text-sm sm:text-base text-gray-400">Global Availability</div>
             </div>
           </motion.div>
         </div>
@@ -777,8 +778,8 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" className="py-24 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-gray-900 to-black">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -786,41 +787,41 @@ function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
             <GlowingText glowColor="#FFFFFF" intensity="low">
               Success{" "}
             </GlowingText>
             <AnimatedText text="Stories" animationType="glow" glowColor="#6EFF6B" />
           </h2>
-          <div className="flex justify-center gap-12 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#5B2EFF] mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-[#5B2EFF] mb-1 sm:mb-2">
                 <GlowingText glowColor="#5B2EFF" intensity="high">
                   10K+
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Active Freelancers</div>
+              <div className="text-sm sm:text-base text-gray-400">Active Freelancers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#6EFF6B] mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-[#6EFF6B] mb-1 sm:mb-2">
                 <GlowingText glowColor="#6EFF6B" intensity="high">
                   $2M+
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Paid Out</div>
+              <div className="text-sm sm:text-base text-gray-400">Paid Out</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#5B2EFF] mb-2">
+              <div className="text-2xl sm:text-3xl font-bold text-[#5B2EFF] mb-1 sm:mb-2">
                 <GlowingText glowColor="#5B2EFF" intensity="high">
                   99.9%
                 </GlowingText>
               </div>
-              <div className="text-gray-400">Success Rate</div>
+              <div className="text-sm sm:text-base text-gray-400">Success Rate</div>
             </div>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -830,7 +831,7 @@ function TestimonialsSection() {
               viewport={{ once: true }}
             >
               <Card className="bg-gray-900/50 border-2 border-[#6EFF6B]/30 hover:border-[#6EFF6B]/60 transition-all duration-300 h-full backdrop-blur-sm group">
-                <CardContent className="p-8">
+                <CardContent className="p-4 sm:p-6 lg:p-8">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
@@ -839,17 +840,17 @@ function TestimonialsSection() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
+                  <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 italic">"{testimonial.content}"</p>
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="font-semibold text-white">
+                      <div className="text-sm sm:text-base font-semibold text-white">
                         <GlowingText glowColor="#FFFFFF" intensity="low" animated={false}>
                           {testimonial.name}
                         </GlowingText>
                       </div>
-                      <div className="text-sm text-gray-400">{testimonial.role}</div>
+                      <div className="text-xs sm:text-sm text-gray-400">{testimonial.role}</div>
                     </div>
-                    <Badge className="bg-[#6EFF6B]/20 text-[#6EFF6B] border-[#6EFF6B]/50">
+                    <Badge className="bg-[#6EFF6B]/20 text-[#6EFF6B] border-[#6EFF6B]/50 text-xs sm:text-sm">
                       <GlowingText glowColor="#6EFF6B" intensity="medium" animated={false}>
                         {testimonial.earnings}
                       </GlowingText>
@@ -868,12 +869,12 @@ function TestimonialsSection() {
 // Final CTA Section
 function FinalCTASection() {
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 bg-black relative overflow-hidden">
       {/* Aurora Background */}
       <Aurora className="absolute inset-0 opacity-20" />
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF]/10 via-transparent to-[#6EFF6B]/10" />
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -881,7 +882,7 @@ function FinalCTASection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
             <GlowingText glowColor="#FFFFFF" intensity="low">
               Ready to{" "}
             </GlowingText>
@@ -891,14 +892,14 @@ function FinalCTASection() {
               Your Freelance Career?
             </GlowingText>
           </h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0">
             <GlowingText glowColor="#6EFF6B" intensity="low" animated={false}>
               Join thousands of freelancers already earning with Web3 technology
             </GlowingText>
           </p>
           <Button
             size="lg"
-            className="bg-white/10 backdrop-blur-md border border-[#5B2EFF]/30 text-[#5B2EFF] hover:bg-[#5B2EFF]/20 hover:border-[#5B2EFF]/50 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 group relative overflow-hidden"
+            className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-[#5B2EFF]/30 text-[#5B2EFF] hover:bg-[#5B2EFF]/20 hover:border-[#5B2EFF]/50 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 group relative overflow-hidden"
           >
             <Wallet className="mr-2 w-5 h-5 relative z-10 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all duration-300" />
             <span className="relative z-10">
@@ -916,17 +917,17 @@ function FinalCTASection() {
 // Footer
 function Footer() {
   return (
-    <footer id="about" className="bg-black border-t border-gray-800 py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer id="about" className="bg-black border-t border-gray-800 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <div className="flex items-center mb-4">
-              <div className="text-2xl font-bold">
+              <div className="text-xl sm:text-2xl font-bold">
                 <FuzzyText
                   baseIntensity={0.12}
                   hoverIntensity={0.4}
                   enableHover={true}
-                  fontSize="2rem"
+                  fontSize="1.5rem"
                   fontWeight={700}
                   color="#ffffff"
                 >
@@ -942,12 +943,12 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">
+            <h4 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">
               <GlowingText glowColor="#5B2EFF" intensity="low" animated={false}>
                 Platform
               </GlowingText>
             </h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-400">
               <li>
                 <a
                   href="#"
@@ -976,12 +977,12 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">
+            <h4 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">
               <GlowingText glowColor="#6EFF6B" intensity="low" animated={false}>
                 Support
               </GlowingText>
             </h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-400">
               <li>
                 <a
                   href="#"
@@ -1010,12 +1011,12 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">
+            <h4 className="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">
               <GlowingText glowColor="#5B2EFF" intensity="low" animated={false}>
                 Company
               </GlowingText>
             </h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-400">
               <li>
                 <a
                   href="#about"
@@ -1044,7 +1045,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-sm sm:text-base text-gray-400">
           <p>
             © 2024 FreelanceX. Built with{" "}
             <GlowingText glowColor="#FF6B6B" intensity="medium" animated={false}>
@@ -1063,23 +1064,23 @@ function VideoModal({ isVideoModalOpen, setIsVideoModalOpen }: { isVideoModalOpe
   if (!isVideoModalOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
-        className="relative w-full max-w-4xl mx-4 bg-gray-900 rounded-2xl overflow-hidden border-2 border-[#5B2EFF]/50"
+        className="relative w-full max-w-4xl bg-gray-900 rounded-2xl overflow-hidden border-2 border-[#5B2EFF]/50"
       >
         {/* Close Button */}
         <button
           onClick={() => setIsVideoModalOpen(false)}
-          className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-300"
         >
           ✕
         </button>
 
         {/* Video Container */}
-        <div className="aspect-video bg-black">
+        <div className="aspect-video bg-black rounded-t-2xl overflow-hidden">
           <video
             className="w-full h-full object-cover"
             controls
@@ -1092,13 +1093,13 @@ function VideoModal({ isVideoModalOpen, setIsVideoModalOpen }: { isVideoModalOpe
         </div>
 
         {/* Video Info */}
-        <div className="p-6">
-          <h3 className="text-2xl font-bold text-white mb-2">
+        <div className="p-4 sm:p-6">
+          <h3 className="text-lg sm:text-2xl font-bold text-white mb-2">
             <GlowingText glowColor="#5B2EFF" intensity="medium" animated={false}>
               FreelanceX Platform Demo
             </GlowingText>
           </h3>
-          <p className="text-gray-400">
+          <p className="text-sm sm:text-base text-gray-400">
             See how FreelanceX revolutionizes freelance payments with Web3 technology, smart contracts, and instant
             settlements.
           </p>
@@ -1113,7 +1114,7 @@ export default function FreelanceXLanding() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       <Header />
       <HeroSection setIsVideoModalOpen={setIsVideoModalOpen} />
       <TrustSection />
