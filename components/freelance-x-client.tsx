@@ -11,6 +11,7 @@ import { AnimatedText } from "@/components/ui/animated-text"
 import { GlowingText } from "@/components/ui/glowing-text"
 import { Header } from "@/components/navigation/header"
 import FuzzyText from "@/components/ui/fuzzy-text"
+import { ClientOnly } from "@/components/client-only"
 
 // Hero Section
 function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: boolean) => void }) {
@@ -1116,14 +1117,39 @@ export function FreelanceXClient() {
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       <Header />
-      <HeroSection setIsVideoModalOpen={setIsVideoModalOpen} />
+      <ClientOnly fallback={
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black/50 to-green-900/20" />
+          <div className="relative z-10 container mx-auto px-6 text-center">
+            <div className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+              Secure freelance payments.
+            </div>
+          </div>
+        </section>
+      }>
+        <HeroSection setIsVideoModalOpen={setIsVideoModalOpen} />
+      </ClientOnly>
       <TrustSection />
       <FeaturesSection />
-      <MockupSection />
+      <ClientOnly fallback={
+        <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative">
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                Web3 Payment Revolution
+              </h2>
+            </div>
+          </div>
+        </section>
+      }>
+        <MockupSection />
+      </ClientOnly>
       <TestimonialsSection />
       <FinalCTASection />
       <Footer />
-      <VideoModal isVideoModalOpen={isVideoModalOpen} setIsVideoModalOpen={setIsVideoModalOpen} />
+      <ClientOnly>
+        <VideoModal isVideoModalOpen={isVideoModalOpen} setIsVideoModalOpen={setIsVideoModalOpen} />
+      </ClientOnly>
     </div>
   )
 }
