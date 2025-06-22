@@ -729,7 +729,7 @@ function MockupSection() {
             <div className="text-center p-6 bg-gray-900/40 rounded-xl border border-[#6EFF6B]/20">
               <div className="text-3xl font-bold text-[#6EFF6B] mb-2">
                 <GlowingText glowColor="#6EFF6B" intensity="high">
-                  <AnimatedText text="0%" animationType="typewriter" />
+                  <AnimatedText text="0.3%" animationType="typewriter" />
                 </GlowingText>
               </div>
               <div className="text-gray-400">Transaction Fees</div>
