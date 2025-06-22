@@ -321,6 +321,7 @@ function HeroSection({ setIsVideoModalOpen }: { setIsVideoModalOpen: (open: bool
             <Button
               size="lg"
               className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 relative overflow-hidden group"
+             onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
             >
               <span className="relative z-10">
                 <GlowingText glowColor="#FFFFFF" intensity="low">
@@ -901,6 +902,7 @@ function FinalCTASection() {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-[#5B2EFF]/30 text-[#5B2EFF] hover:bg-[#5B2EFF]/20 hover:border-[#5B2EFF]/50 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 group relative overflow-hidden"
+           onClick={() => window.open('https://freelancex.alberaber.com/', '_blank')}
           >
             <Wallet className="mr-2 w-5 h-5 relative z-10 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all duration-300" />
             <span className="relative z-10">
